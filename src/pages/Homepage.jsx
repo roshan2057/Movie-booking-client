@@ -1,12 +1,10 @@
 import React from 'react'
-import Header from './components.jsx/Header'
 import Card from './components.jsx/Card'
 
 const Homepage = () => {
   return (
   <>
-  
-<Header/>
+
 
 <h1 className="mt-9 pl-8 text-3xl">Top Movies</h1>
 
