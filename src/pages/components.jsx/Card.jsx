@@ -5,7 +5,7 @@ const Card = ({ image, name }) => {
     <>
     
     <div className="lg:w-1/4 md:w-1/2 p-4 w-full  hover:scale-105">
-        <a className="block relative rounded overflow-hidden" href={`/${image}`}>
+        <a className="block relative rounded overflow-hidden" href='/details'>
           <img alt={name} className="object-cover object-center w-full h-full block" src={image} />
         </a>
         <div>

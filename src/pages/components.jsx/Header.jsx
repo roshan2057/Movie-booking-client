@@ -5,7 +5,10 @@ const Header = () => {
     <>
     <header className="bg-orange-500 text-3xl flex justify-between px-9 py-5">
  <div>
+  <a href='/'>
+
   Movies
+  </a>
  </div>
  <div>
   <a href="/login" className="mx-4">Login</a>
