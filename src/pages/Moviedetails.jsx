@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Moviedetails = () => {
   return (
@@ -47,7 +48,7 @@ const Moviedetails = () => {
               </div>
               <div className="flex mt-8">
               <a className="flex text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:scale-105 rounded"   rel="noopener noreferrer" href="https://youtu.be/Dydmpfo68DA?si=19w_0_w7OYwHpVxP" target="_blank">View Tailor</a>
-          <a href='/reserve' className="flex ml-auto text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:scale-105 rounded">Reserve Ticket</a>
+          <Link to='/reserve' className="flex ml-auto text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:scale-105 rounded">Reserve Ticket</Link>
           
         </div>
               
