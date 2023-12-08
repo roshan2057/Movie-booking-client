@@ -17,7 +17,7 @@ const Homepage = () => {
     <>
 
 
-      <h1 className="mt-9 pl-8 text-3xl">Top Movies</h1>
+      <h1 className="mt-9 pl-8 text-3xl">Now Showing Movies</h1>
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-8 mx-auto">
