@@ -1,6 +1,20 @@
-import React from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie'
+import React, { useEffect } from 'react'
 
 const Details = () => {
+
+  useEffect(()=>{
+axios.get(`${process.env.REACT_APP_API}/profile/details`,{
+  headers:{
+    token:Cookies.get("token")
+  }
+}).then(res=>{
+  console.log(res);
+}).catch(error=>{
+  console.error(error);
+})
+  },[])
   return (
     <>
  

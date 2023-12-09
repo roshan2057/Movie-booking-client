@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -10,13 +11,17 @@ const ReserveSeat = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API}/reserve/${id}`)
+        axios.get(`${process.env.REACT_APP_API}/reserve/${id}`,{
+            headers:{
+                token: Cookies.get('token')
+              }})
             .then(res => {
                 setTime(res.data.data);
                 setName(res.data.movieName);
                 setSeat(res.data.data[0].rows);
             })
             .catch(error => {
+                window.location.href='/login'
                 console.log(error);
             });
     }, [id]);
@@ -31,19 +36,28 @@ const ReserveSeat = () => {
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.name);
 
+            if(seat.length === 0){
+                return alert("select atleat 1 seat")
+            }
+
         axios.post(`${process.env.REACT_APP_API}/reserveseat`, {
             movieID: id,
-            userID: "6572fb605bed4689f093eef6",
             seat,
             showtimeID: showtimeID
+        },{
+            headers:{
+                token: Cookies.get('token')
+              }
         })
             .then(res => {
 
                 console.log(res);
-                window.location.reload();
+                window.location.href="/profile/seat";
             })
             .catch(error => {
-                console.log(error);
+                window.location.href="/login";
+
+                console.error(error);
             });
     };
 

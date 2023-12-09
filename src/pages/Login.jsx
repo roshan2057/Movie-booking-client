@@ -1,10 +1,24 @@
-import React from 'react'
+import axios from 'axios';
+import React from 'react';
+import cookies from 'js-cookie';
 
 const Login = () => {
     const login =(e)=>{
         e.preventDefault();
 
-        console.log("done")
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        axios.post(`${process.env.REACT_APP_API}/login`, {email,
+        password}).then(res=>{
+            if(!res.data.token){
+return alert (res.data);
+            }
+            cookies.set("token", res.data.token);
+           window.location.href="/"
+        }).catch(error=>{
+            console.error(error);
+        })
     }
     return (
         <>

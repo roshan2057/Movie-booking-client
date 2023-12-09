@@ -13,6 +13,7 @@ import Admin from "./pages/admin/Admin";
 import Addmovie from "./pages/admin/Addmovie";
 import Viewseat from "./pages/admin/Viewseat";
 import Addshow from "./pages/admin/Addshow";
+import Auth from "./Auth";
 
 function App() {
   const location = useLocation();
@@ -27,10 +28,22 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/details/:id" element={<Moviedetails />} />
-        <Route path="/reserve/:id" element={<ReserveSeat />} />
+        <Route path="/reserve/:id" element={
+        <Auth>
+
+        <ReserveSeat />
+        </Auth>
+        
+        } />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />}>
+        <Route path="/profile" element={
+        <Auth>
+
+        <Profile />
+        </Auth>
+        
+        }>
           <Route path="details" element={<Details />} />
           <Route path="seat" element={<Userreserveseat />} />
         </Route>
