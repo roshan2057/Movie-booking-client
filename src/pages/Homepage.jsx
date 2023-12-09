@@ -21,7 +21,7 @@ const Homepage = () => {
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-8 mx-auto">
-          <div className="flex flex-wrap -m-4">
+          <div className="flex flex-wrap m-4">
 
             {movie.map((item, index) => (
               <Card key={index} image={item.imageurl} name={item.title} link={item._id} />

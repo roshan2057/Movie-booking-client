@@ -21,6 +21,7 @@ const ReserveSeat = () => {
                 setSeat(res.data.data[0].rows);
             })
             .catch(error => {
+                
                 window.location.href='/login'
                 console.log(error);
             });
@@ -51,7 +52,7 @@ const ReserveSeat = () => {
         })
             .then(res => {
 
-                console.log(res);
+              alert("Seat reserved Sucessfully........")
                 window.location.href="/profile/seat";
             })
             .catch(error => {

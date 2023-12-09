@@ -3,20 +3,22 @@ import React from 'react';
 import cookies from 'js-cookie';
 
 const Login = () => {
-    const login =(e)=>{
+    const login = (e) => {
         e.preventDefault();
 
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        axios.post(`${process.env.REACT_APP_API}/login`, {email,
-        password}).then(res=>{
-            if(!res.data.token){
-return alert (res.data);
+        axios.post(`${process.env.REACT_APP_API}/login`, {
+            email,
+            password
+        }).then(res => {
+            if (!res.data.token) {
+                return alert(res.data);
             }
             cookies.set("token", res.data.token);
-           window.location.href="/"
-        }).catch(error=>{
+            window.location.href = "/"
+        }).catch(error => {
             console.error(error);
         })
     }
@@ -24,7 +26,7 @@ return alert (res.data);
         <>
             <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
                 <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
-                    <form  onSubmit={login}>
+                    <form onSubmit={login}>
                         <h1 className="font-bold text-center text-2xl mb-5">Login ..</h1>
                         <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
                             <div className="px-5 py-7">

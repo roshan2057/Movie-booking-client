@@ -1,34 +1,49 @@
-import React from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie'
+import React, { useEffect, useState } from 'react'
 
 const Userreserveseat = () => {
-  return (
-   <>
-   <div className='mt-10'>
-    
-    <h1>Reserved seat</h1>
+  const [reserveseat, setSeat] = useState([])
 
-    <table className='border-2'>
-      <tr>
-        <th className='px-5'>sn</th>
-        <th className='px-5'>Movie</th>
-        <th className='px-5'>Show</th>
-        <th className='px-5'>Seats</th>
-      </tr>
-      <tr>
-        <td className='px-5'>1.</td>
-        <td className='px-5'>Animal</td>
-        <td className='px-5'>10:45 AM</td>
-        <td className='px-5'>A1,A8</td>
-      </tr>
-      <tr>
-        <td className='px-5'>2.</td>
-        <td className='px-5'>Dukan</td>
-        <td className='px-5'>10:45 AM</td>
-        <td className='px-5'>A1,A8</td>
-      </tr>
-    </table>
-   </div>
-   </>
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_API}/profile/reserveseats`, {
+      headers: {
+        token: Cookies.get("token")
+      }
+    }).then(res => {
+      setSeat(res.data)
+      console.log(res)
+    }).catch(error => {
+      console.log(error)
+    })
+  }, [])
+  return (
+    <>
+      <div className='mt-10'>
+
+        <h1>Reserved seat</h1>
+
+        <table className='border-2'>
+          <tr>
+            <th className='px-5'>sn</th>
+            <th className='px-5'>Movie</th>
+            <th className='px-5'>Show</th>
+            <th className='px-5'>Seats</th>
+          </tr>
+
+          {reserveseat.map((item, index) => (
+            <tr key={index} className='text-center'>
+              <td className='px-5'>{index + 1}</td>
+              <td className='px-5'>{item.movieID.title}</td>
+              <td className='px-5'>{item.showtimeID.time}</td>
+              <td className='px-5'>{item.seat.join(',')}</td>
+            </tr>
+
+          ))}
+
+        </table>
+      </div>
+    </>
   )
 }
 
