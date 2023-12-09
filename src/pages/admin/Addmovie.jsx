@@ -35,17 +35,16 @@ const Addmovie = () => {
 
 
     movieData.showtime = checkedTimes;
-
-
-
-    console.log(movieData);
-
+    if (checkedTimes.length === 0) {
+      return alert("select show time");
+    }
 
     axios.post(`${process.env.REACT_APP_API}/addmovie`, {
       movieData
     }).then(res => {
       console.log(res);
       alert(res.data)
+      window.location.href = "/";
     }).catch(error => {
       console.log(error);
     })
@@ -55,27 +54,27 @@ const Addmovie = () => {
   return (
     <>
 
-      <div className='flex mt-5 w-full items-start'>
+      <div className='flex md:flex-row flex-col mt-5 w-full items-start'>
         <form className='flex flex-col ml-10 mb-9' onSubmit={addmovie}>
           <label>Title</label>
-          <input className='border-2' name='title' type='text' id='title' placeholder='Enter Movie Name'></input>
+          <input className='border-2' name='title' type='text' id='title' placeholder='Enter Movie Name' required></input>
           <label>Genre</label>
-          <input className='border-2' name='genre' type='text' id='genre' placeholder='Image  url'></input>
+          <input className='border-2' name='genre' type='text' id='genre' placeholder='Enter the Genre' required></input>
           <label>Description</label>
-          <input className='border-2' name='description' type='text' id='description' placeholder='Gener'></input>
+          <textarea className='border-2 h-20' name='description' type='text' id='description' placeholder='Enter Description' required></textarea>
           <label>Director</label>
-          <input className='border-2' name='director' type='text' id='director' placeholder='Title'></input>
+          <input className='border-2' name='director' type='text' id='director' placeholder='Enter Director Name' required></input>
           <label>Cast</label>
-          <input className='border-2' name='cast' type='text' id='caste' placeholder='Description'></input>
+          <input className='border-2' name='cast' type='text' id='caste' placeholder='Name of the Actors' required></input>
           <label>Release Date</label>
-          <input className='border-2' name='release_date' type='text' id='release_date' placeholder='Show time'></input>
+          <input className='border-2' name='release_date' type='text' id='release_date' placeholder='Release Date' required></input>
           <label>Duration</label>
-          <input className='border-2' name='duration' type='text' id='duration' placeholder='Show time'></input>
+          <input className='border-2' name='duration' type='text' id='duration' placeholder='Enter Film time duration' required></input>
           <label>Image Url</label>
-          <input className='border-2' name='imageurl' type='text' id='imageurl' placeholder='Show time'></input>
+          <input className='border-2' name='imageurl' type='text' id='imageurl' placeholder='Enter Poster image url' required></input>
           <label>Trailer Url</label>
-          <input className='border-2' name='trailerurl' type='text' id='trailerurl' placeholder='Show time'></input>
-          <label>Show Time</label>
+          <input className='border-2' name='trailerurl' type='text' id='trailerurl' placeholder='Youtube trailer url' required></input>
+          <label>Movie Show Time</label>
           {show.map((item, index) => (
             <span key={index}>
               <input className='border-2' name='showtime' id='time' value={item._id} type='checkbox'></input>{item.time}
@@ -87,6 +86,11 @@ const Addmovie = () => {
 
           <input type='submit' className='border-2 mt-2' value='Save'></input>
         </form>
+        <div className='flex justify-center items-center h-40 md:ml-96 ml-0' >
+          <span>You can take the refrence data from <a href="https://cineplexmovie.com/Home.aspx" target='_blank' rel='noreferrer' className='text-blue-400'>here... </a>
+            Just click any movie from there and get the data
+          </span>
+        </div>
       </div>
     </>
   )

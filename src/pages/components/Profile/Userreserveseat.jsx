@@ -25,18 +25,18 @@ const Userreserveseat = () => {
 
         <table className='border-2'>
           <tr>
-            <th className='px-5'>sn</th>
-            <th className='px-5'>Movie</th>
-            <th className='px-5'>Show</th>
-            <th className='px-5'>Seats</th>
+            <th className='md:px-5 px-3'>sn</th>
+            <th className='md:px-5 px-3'>Movie</th>
+            <th className='md:px-5 px-3'>Show</th>
+            <th className='md:px-5 px-3'>Seats</th>
           </tr>
 
           {reserveseat.map((item, index) => (
             <tr key={index} className='text-center'>
-              <td className='px-5'>{index + 1}</td>
-              <td className='px-5'>{item.movieID.title}</td>
-              <td className='px-5'>{item.showtimeID.time}</td>
-              <td className='px-5'>{item.seat.join(',')}</td>
+              <td className='md:px-5 px-3'>{index + 1}</td>
+              <td className='md:px-5 px-3'>{item.movieID.title}</td>
+              <td className='md:px-5 px-3'>{item.showtimeID.time}</td>
+              <td className='md:px-5 px-3'>{item.seat.join(',')}</td>
             </tr>
 
           ))}

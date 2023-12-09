@@ -15,13 +15,11 @@ const Homepage = () => {
   }, [])
   return (
     <>
-
-
-      <h1 className="mt-9 pl-8 text-3xl">Now Showing Movies</h1>
+      <h1 className="mt-9 pl-8 text-4xl font-medium" >Now Showing</h1>
 
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-8 mx-auto">
-          <div className="flex flex-wrap m-4">
+        <div className="container py-8 mx-auto">
+          <div className="flex flex-wrap m-1 justify-evenly">
 
             {movie.map((item, index) => (
               <Card key={index} image={item.imageurl} name={item.title} link={item._id} />

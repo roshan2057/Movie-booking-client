@@ -3,7 +3,7 @@ import Homepage from "./pages/Homepage";
 import Moviedetails from "./pages/Moviedetails";
 import ReserveSeat from "./pages/ReserveSeat";
 import Header from "./pages/components/Header";
-import AdminHeader from "./pages/components/AdminHeader"; 
+import AdminHeader from "./pages/components/AdminHeader";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/components/Profile/Profile";
@@ -28,22 +28,24 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/details/:id" element={<Moviedetails />} />
-        <Route path="/reserve/:id" element={
-        <Auth>
-
-        <ReserveSeat />
-        </Auth>
-        
-        } />
+        <Route
+          path="/reserve/:id"
+          element={
+            <Auth>
+              <ReserveSeat />
+            </Auth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={
-        <Auth>
-
-        <Profile />
-        </Auth>
-        
-        }>
+        <Route
+          path="/profile"
+          element={
+            <Auth>
+              <Profile />
+            </Auth>
+          }
+        >
           <Route path="details" element={<Details />} />
           <Route path="seat" element={<Userreserveseat />} />
         </Route>
