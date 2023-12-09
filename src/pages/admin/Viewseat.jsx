@@ -23,6 +23,7 @@ const Viewseat = () => {
       <tr>
         <th className='px-5'>sn</th>
         <th className='px-5'>User Name</th>
+        <th className='px-5'>Phone</th>
         <th className='px-5'>Movie</th>
         <th className='px-5'>Show</th>
         <th className='px-5'>Seat</th>
@@ -32,7 +33,8 @@ const Viewseat = () => {
         {data.map((item,index)=>(
       <tr key={index} className='text-center'>
         <td className='px-5'>{index+1}</td>
-        <td className='px-5'>{item.title}</td>
+        <td className='px-5'>{item.userID.name}</td>
+        <td className='px-5'>{item.userID.phone}</td>
         <td className='px-5'>{item.movieID.title}</td>
         <td className='px-5'>{item.showtimeID.time}</td>
         <td className='px-5'>{item.seat.join(',')}</td>

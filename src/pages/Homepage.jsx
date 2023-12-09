@@ -24,7 +24,7 @@ const Homepage = () => {
           <div className="flex flex-wrap -m-4">
 
             {movie.map((item, index) => (
-              <Card image={item.imageurl} name={item.title} link={item._id} />
+              <Card key={index} image={item.imageurl} name={item.title} link={item._id} />
 
             ))}
 
