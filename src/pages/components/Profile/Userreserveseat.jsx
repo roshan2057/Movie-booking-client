@@ -14,6 +14,7 @@ const Userreserveseat = () => {
       setSeat(res.data)
       console.log(res)
     }).catch(error => {
+      window.location.href = '/login'
       console.log(error)
     })
   }, [])

@@ -19,7 +19,7 @@ const Homepage = () => {
 
       <section className="text-gray-600 body-font">
         <div className="container py-8 mx-auto">
-          <div className="flex flex-wrap m-1 justify-evenly">
+          <div className="flex flex-wrap m-1 lg:justify-between justify-evenly">
 
             {movie.map((item, index) => (
               <Card key={index} image={item.imageurl} name={item.title} link={item._id} />

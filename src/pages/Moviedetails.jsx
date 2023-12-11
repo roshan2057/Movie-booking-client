@@ -65,8 +65,8 @@ const Moviedetails = () => {
                 </div>
               </div>
               <div className="flex mt-8">
-                <a className="flex text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:scale-105 rounded" rel="noopener noreferrer" href={movie.trailerurl} target="_blank">View Tailor</a>
-                <Link to={`/reserve/${movie._id}`} className="flex ml-auto text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:scale-105 rounded">Reserve Ticket</Link>
+                <a className="flex text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:scale-105 rounded" rel="noopener noreferrer" href={movie.trailerurl} target="_blank">View Trailer</a>
+                <Link to={`/reserve/${movie._id}`} className="flex ml-auto text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:scale-105 rounded">Reserve Seat</Link>
 
               </div>
             </div>

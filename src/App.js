@@ -14,6 +14,7 @@ import Addmovie from "./pages/admin/Addmovie";
 import Viewseat from "./pages/admin/Viewseat";
 import Addshow from "./pages/admin/Addshow";
 import Auth from "./Auth";
+import Notfound from "./pages/Notfound";
 
 function App() {
   const location = useLocation();
@@ -54,6 +55,7 @@ function App() {
           <Route path="addtime" element={<Addshow />} />
           <Route path="seats" element={<Viewseat />} />
         </Route>
+        <Route path="*" element={<Notfound/>}/>
       </Routes>
     </div>
   );

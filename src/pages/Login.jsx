@@ -33,7 +33,7 @@ const Login = () => {
                                 <label className="font-semibold text-sm text-gray-600 pb-1 block">E-mail</label>
                                 <input type="text" name='email' className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
                                 <label className="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
-                                <input type="text" name='password' className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+                                <input type="password" name='password' className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
                                 <button type="submit" className="transition duration-200 bg-orange-500 hover:bg-orange-600 focus:shadow-sm focus:ring-4 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
                                     <span className="inline-block mr-2">Login</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 inline-block">

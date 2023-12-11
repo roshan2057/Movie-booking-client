@@ -14,6 +14,7 @@ const Details = () => {
       setData(res.data);
       console.log(res);
     }).catch(error => {
+      window.location.href = '/login'
       console.error(error);
     })
   }, [])

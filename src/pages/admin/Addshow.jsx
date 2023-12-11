@@ -24,7 +24,9 @@ const Addshow = () => {
         axios.post(`${process.env.REACT_APP_API}/addshow`, {
             time
         }).then(res => {
+
             console.log(res);
+            window.location.reload();
             alert(res.data)
         }).catch(error => {
             console.log(error);
